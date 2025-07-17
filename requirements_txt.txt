@@ -1,0 +1,61 @@
+# Core Django Framework
+Django>=4.2.0
+djangorestframework>=3.14.0
+
+# Video Processing
+moviepy>=1.0.3
+opencv-python>=4.8.0
+ffmpeg-python>=0.2.0
+
+# Audio Processing
+librosa>=0.10.0
+pydub>=0.25.1
+soundfile>=0.12.1
+
+# AI/ML Libraries
+ultralytics>=8.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Image Processing
+Pillow>=10.0.0
+opencv-contrib-python>=4.8.0
+
+# Natural Language Processing
+nltk>=3.8.0
+textblob>=0.17.1
+
+# Music/MIDI Processing
+mido>=1.2.10
+pygame>=2.5.0
+pretty_midi>=0.2.9
+
+# Data Processing
+pandas>=2.0.0
+matplotlib>=3.7.0
+
+# Web Development
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# File Processing
+python-magic>=0.4.27
+
+# Database
+sqlite3
+
+# Development Tools
+python-dotenv>=1.0.0
+
+# Audio/Video Codecs Support
+ffmpeg
+
+# Additional utilities
+tqdm>=4.65.0
+click>=8.1.0
+
+#NOTE:
+------
+	Some external requirements can be needed to be fulfil.

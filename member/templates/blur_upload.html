@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded and Processed Video Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 100px;
+            max-width: 1100px;
+            width: 100%;
+            padding: 21px;
+            box-sizing: border-box;
+        }
+
+        .container {
+             flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 21px;
+/*            0 25px 50px -12px #6e749b40;*/
+            box-shadow: 0 2px 1px #6e749b17,
+                        0 4px 2px #6e749b17, 0 8px 4px #6e749b17,
+                        0 16px 8px #6e749b17, 0 32px 16px #6e749b17,
+            position: relative;
+        }
+
+        .video-section {
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 0;
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*.spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }*/
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .container:not(.processing) .loading-spinner {
+            display: none;
+        }
+
+        .container.processing .video-section video {
+            display: none;
+        }
+
+        .video-section video.ready {
+            display: block;
+        }
+    </style>
+</head>
+{% load static %}
+<body style="background-image: url('{% static "member/silencebg.jpg" %}'); background-repeat: no-repeat; background-size: cover;">
+
+    <div class="main-container">
+        <!-- Left Side: Uploaded Video Preview -->
+        <div class="container">
+            <div class="video-section">
+                <h2>Uploaded Video</h2>
+                <video id="uploadedVideo" controls>
+                    <!-- Directly set the path of the uploaded video -->
+                    <source src="{{upload_path}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> 
+            </div>
+        </div>
+        <button style="height: 50px; border-radius: 21px; width: 121px;"><a href="blur_upload.html"><b>Edit-Now</b></a></button>
+
+        <!-- Right Side: Processed Video Preview with Loading Spinner -->
+        <div class="container processing">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="video-section">
+                <h2>Processed Video</h2>
+                <video id="processedVideo" controls>
+                    <source id="processedVideoSource" src="member/media/Blur_output.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the processed video to load
+        const processedVideoSource = document.getElementById('processedVideoSource');
+        const processedVideo = document.getElementById('processedVideo');
+        
+        // Dynamically set the path of the processed video (if required)
+        processedVideoSource.src = "member/media/Blur_output.mp4";  // Update with the actual path of the processed video
+
+        processedVideo.addEventListener('loadeddata', () => {
+            const container = processedVideo.closest('.container');
+            container.classList.remove('processing');
+            processedVideo.classList.add('ready');
+        });
+    </script>
+</body>
+</html>
