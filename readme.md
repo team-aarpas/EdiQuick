@@ -14,7 +14,7 @@ EdiQuick is a powerful Django-based web application that provides comprehensive 
 - **Silence Removal**: Automatically detect and remove silent portions
 - **Audio-to-Text**: Convert speech to text with high accuracy
 - **Video Trimming**: Precise video cutting and trimming tools
-- **Concatenation**: Merge multiple videos seamlessly
+- **Concatenation**: Merge multiple videos seamlessly.
 
 ## 🛠️ Technology Stack
 
