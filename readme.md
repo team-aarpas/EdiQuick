@@ -23,7 +23,6 @@ EdiQuick is a powerful Django-based web application that provides comprehensive 
 - **Audio Processing**: Librosa, Pydub, MoviePy
 - **Video Processing**: OpenCV, FFmpeg
 - **NLP**: NLTK, TextBlob
-- **Database**: SQLite (development)
 - **Frontend**: HTML5, CSS3, JavaScript
 
 ## 📋 Prerequisites
